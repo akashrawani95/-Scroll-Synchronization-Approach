@@ -1,0 +1,20 @@
+const editor = document.getElementById('editor');
+const lineNumbers = document.getElementById('lineNumbers');
+
+// Populate line numbers initially
+function updateLineNumbers() {
+  const lines = editor.value.split('\n').length;
+  lineNumbers.innerHTML = '';
+  for (let i = 1; i <= lines; i++) {
+    lineNumbers.innerHTML += i + '<br>';
+  }
+}
+
+// Update line numbers on input
+editor.addEventListener('input', updateLineNumbers);
+updateLineNumbers(); // Initialize
+
+// Synchronize scrolling
+editor.addEventListener('scroll', () => {
+  lineNumbers.scrollTop = editor.scrollTop;
+});
