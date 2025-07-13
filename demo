@@ -1,0 +1,16 @@
+
+const editor = document.getElementById('editor');
+const lineNumbers = document.getElementById('lineNumbers');
+
+
+editor.addEventListener('input', () => {
+  const lines = editor.value.split('\n').length;
+  lineNumbers.innerHTML = '';
+  for (let i = 1; i <= lines; i++) {
+    lineNumbers.innerHTML += i + '<br>';
+  }
+});
+
+editor.addEventListener('scroll', () => {
+  lineNumbers.scrollTop = editor.scrollTop;
+});
